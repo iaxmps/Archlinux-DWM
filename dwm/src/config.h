@@ -1,0 +1,1 @@
+/home/loscrews/dwm/config.h

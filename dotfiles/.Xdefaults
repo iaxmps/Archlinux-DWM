@@ -1,0 +1,23 @@
+urxvt.background                        : black
+urxvt.foreground                        : green
+urxvt.inheritPixmap                     : True
+! urxvt.termName                        : dtterm
+urxvt.termName                  : rxvt
+urxvt.visualBell                        : True
+! urxvt.backspacekey            : "^H"
+urxvt.scrollTtyKeypress         : True
+urxvt.scrollTtyOutput                   : False
+urxvt.saveLines                 : 1024
+urxvt.multichar_encoding                : utf-8
+urxvt.inputMethod                       : fcitx
+!              urxvt.mfont              : hanzigb16st
+! urxvt.font    : 7×14
+! urxvt.font    : -windows-proggyclean-medium-*-*-*-12-*-*-*-*-*-iso8859-1
+! urxvt.font            : -wenquanyi-*-medium-*-*-*-12-*-*-*-*-*-iso10646-*
+urxvt.mfont             : -wenquanyi-*-medium-*-*-*-12-*-*-*-*-*-iso10646-*
+urxvt.transparent:              True
+urxvt.tintColor:                blue
+urxvt.shading:          40
+urxvt.fading: 60
+urxvt.urlLauncher:   chromium
+urxvt.perl-ext-common:   mark-urls

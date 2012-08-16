@@ -1,0 +1,20 @@
+out_to_console yes
+out_to_x no
+background no
+update_interval 2
+total_run_times 0
+use_spacer none
+double_buffer yes
+
+TEXT
+[${if_match "${mpd_status}" =="Playing"}$mpd_smart $else${mpd_status}$endif ]\
+[${exec echo -ne '\uE00F'} :${exec ~/bin/pac.pl} || \
+${exec echo -ne '\uE00E'} :${exec ~/bin/aur.pl} ] \
+[${exec echo -ne '\uE048'} ${wireless_essid wlan0} || \
+${downspeed wlan0}  || \
+${upspeed wlan0}  ] \
+[ $memperc% ($mem) ] \
+#[${acpitemp}° ] \ 
+[ ${exec ~/bin/vol.sh} ] \
+[ ${battery_percent BAT0}% ] \
+[${exec echo -ne '\uE015'} ${time  %a %b %d %I:%M%P}]
