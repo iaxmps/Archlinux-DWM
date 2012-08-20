@@ -15,13 +15,15 @@ static const Bool showbar           = True;     /* False means no bar */
 static const Bool topbar            = True;     /* False means bottom bar */
 
 /* tagging */
-static const char *tags[] = { "Term", "Chat", "Vids", "Web", "Misc" };
+static const char *tags[] = { "Term", "Chat", "Vids", "Web", "VM" };
 
 static const Rule rules[] = {
 	/* class      instance  title	tags mask	isfloating	monitor */
 	{ "Gimp",      NULL,	NULL,	0,		True,		-1 },
 	{ "Chromium",  NULL,    NULL,	1 << 3,		False,		-1 },
 	{ "Vlc",       NULL, 	NULL,	1 << 2,		True,		-1 },
+	{ "VirtualBox",       NULL,    NULL,   1 << 4,         True,           -1 },
+
 };
 
 /* layout(s) */
