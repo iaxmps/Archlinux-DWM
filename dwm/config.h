@@ -1,14 +1,21 @@
 /* See LICENSE file for copyright and license details. */
 
 /* appearance */
-static const char font[]            = "-*-stlarch-medium-r-*-*-11-*-*-*-*-*-*-*" "," 
+static const char font[]            = "-*-stlarch-medium-r-*-*-11-*-*-*-*-*-*-*" ","
 "-*-terminus-medium-r-*-*-12-*-*-*-*-*-*-*";
-static const char normbordercolor[] = "#444444";
-static const char normbgcolor[]     = "#222222";
-static const char normfgcolor[]     = "#bbbbbb";
-static const char selbordercolor[]  = "#005577";
-static const char selbgcolor[]      = "#005577";
-static const char selfgcolor[]      = "#eeeeee";
+#define NUMCOLORS 9 
+static const char colors[NUMCOLORS][ColLast][9] = {
+// border foreground background
+{ "#212121", "#696969", "#121212" }, // 0 = normal
+{ "#696969", "#E0E0E0", "#121212" }, // 1 = selected
+{ "#212121", "#CF4F88", "#121212" }, // 2 = red
+{ "#212121", "#53A6A6", "#121212" }, // 3 = green
+{ "#212121", "#914E89", "#121212" }, // 4 = yellow
+{ "#212121", "#4779B3", "#121212" }, // 5 = blue
+{ "#212121", "#47959E", "#121212" }, // 6 = cyan
+{ "#212121", "#7E62B3", "#121212" }, // 7 = magenta
+{ "#212121", "#899CA1", "#121212" }, // 8 = grey
+};
 static const unsigned int borderpx  = 1;        /* border pixel of windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const Bool showbar           = True;     /* False means no bar */
@@ -18,13 +25,14 @@ static const Bool topbar            = True;     /* False means bottom bar */
 static const char *tags[] = { "Term", "Chat", "Vids", "Web", "VM" };
 
 static const Rule rules[] = {
-	/* class      instance  title	tags mask	isfloating	monitor */
-	{ "Gimp",      NULL,	NULL,	0,		True,		-1 },
-	{ "Chromium",  NULL,    NULL,	1 << 3,		False,		-1 },
-	{ "Vlc",       NULL, 	NULL,	1 << 2,		True,		-1 },
-	{ "VirtualBox",       NULL,    NULL,   1 << 4,         True,           -1 },
+        /* class      instance  title   tags mask       isfloating      monitor */
+        { "Gimp",      NULL,    NULL,   0,              True,           -1 },
+        { "Chromium",  NULL,    NULL,   1 << 3,         False,          -1 },
+        { "Vlc",       NULL,    NULL,   1 << 2,         True,           -1 },
+        { "VirtualBox",       NULL,    NULL,   1 << 4,         True,           -1 },
 
 };
+
 
 /* layout(s) */
 static const float mfact      = 0.55; /* factor of master area size [0.05..0.95] */
@@ -50,8 +58,7 @@ static const Layout layouts[] = {
 #define SHCMD(cmd) { .v = (const char*[]){ "/bin/sh", "-c", cmd, NULL } }
 
 /* commands */
-static const char *dmenucmd[] = { "dmenu_run", "-fn", font, "-nb", normbgcolor, "-nf", normfgcolor, "-sb", 
-selbgcolor, "-sf", selfgcolor, NULL };
+static const char  *dmenucmd[] = { "dmenu_run", "-fn", font, "-nb", colors[0][ColBG], "-nf", colors[0][ColFG], "-sb", colors[1][ColBG], "-sf", colors[1][ColFG], NULL };
 static const char *termcmd[]  = { "urxvt", NULL };
 
 static Key keys[] = {
@@ -107,3 +114,4 @@ static Button buttons[] = {
 	{ ClkTagBar,            MODKEY,         Button1,        tag,            {0} },
 	{ ClkTagBar,            MODKEY,         Button3,        toggletag,      {0} },
 };
+
