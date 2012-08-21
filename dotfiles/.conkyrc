@@ -8,16 +8,15 @@ double_buffer yes
 
 TEXT
 [${if_match "${mpd_status}" =="Playing"}$mpd_smart $else${mpd_status}$endif ] \
-[ : ${exec ~/bin/pac.pl} || \
- : ${exec ~/bin/aur.pl} ] \
-[ ${wireless_essid wlan0} || \
-${downspeed wlan0}  || \
-${upspeed wlan0}  ] \
-[ $memperc% ($mem) ] \
+[${exec echo -e '\x05'}${exec echo -e '\x01'}:${exec ~/bin/pac.pl}|| \
+${exec echo -e '\x07'}${exec echo -e '\x01'} :${exec ~/bin/aur.pl} ] \
+[${exec echo -e '\x06'}${exec echo -e '\x01'} ${wireless_essid wlan0} || \
+${downspeed wlan0} ${exec echo -e '\x04'}${exec echo -e '\x01'} || \
+${upspeed wlan0} ${exec echo -e '\x04'}${exec echo -e '\x01'} ] \
+[${exec echo -e '\x05'}${exec echo -e '\x01'} $memperc% ($mem) ] \
 #[${acpitemp}° ] \ 
-[ ${exec ~/bin/vol.sh} ] \
-[ ${battery_percent BAT0}% ] \
-[ ${time  %a %b %d %I:%M%P}]
+[${exec echo -e '\x03'} ${exec echo -e '\x01'}${exec ~/bin/vol.sh} ] \
+[${exec echo -e '\x06'} ${exec echo -e '\x01'}${battery_percent BAT0}% ] \
+[${exec echo -e '\x02'} ${exec echo -e '\x01'}${time  %a %b %d %I:%M%P}]
 
 
-# test ${exec echo -e \\x04}
