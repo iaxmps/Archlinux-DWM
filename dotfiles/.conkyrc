@@ -7,14 +7,17 @@ use_spacer none
 double_buffer yes
 
 TEXT
-[${if_match "${mpd_status}" =="Playing"}$mpd_smart $else${mpd_status}$endif ]\
-[${exec echo -ne '\uE00F'} :${exec ~/bin/pac.pl} || \
-${exec echo -ne '\uE00E'} :${exec ~/bin/aur.pl} ] \
-[${exec echo -ne '\uE048'} ${wireless_essid wlan0} || \
+[${if_match "${mpd_status}" =="Playing"}$mpd_smart $else${mpd_status}$endif ] \
+[ : ${exec ~/bin/pac.pl} || \
+ : ${exec ~/bin/aur.pl} ] \
+[ ${wireless_essid wlan0} || \
 ${downspeed wlan0}  || \
 ${upspeed wlan0}  ] \
 [ $memperc% ($mem) ] \
 #[${acpitemp}° ] \ 
 [ ${exec ~/bin/vol.sh} ] \
 [ ${battery_percent BAT0}% ] \
-[${exec echo -ne '\uE015'} ${time  %a %b %d %I:%M%P}]
+[ ${time  %a %b %d %I:%M%P}]
+
+
+# test ${exec echo -e \\x04}
