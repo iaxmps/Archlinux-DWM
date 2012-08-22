@@ -11,14 +11,13 @@
 #  unset f
 #fi
 
-# exec gnome-session
-# exec startkde
-# exec startxfce4
-# ...or the Window Manager of your choice
 xset +fp /usr/share/fonts/local
 xset fp rehash
 feh --bg-scale /home/loscrews/Pics/bg.jpg &
-xcompmgr &
+mpd &
+xbindkeys &
+#xcompmgr &
 conky | while read -r; do xsetroot -name "$REPLY"; done &
 thunar --daemon &
 exec dbus-launch ck-launch-session dwm
+
