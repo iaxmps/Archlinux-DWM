@@ -1,1 +1,1 @@
-/home/loscrews/dwm/config.h
+/home/loscrews/ScrewsArch/dwm/config.h
