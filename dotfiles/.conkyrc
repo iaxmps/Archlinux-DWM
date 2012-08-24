@@ -14,9 +14,10 @@ ${exec echo -e '\x07'}${exec echo -e '\x01'} :${exec ~/bin/aur.pl} ] \
 ${downspeed wlan0} ${exec echo -e '\x04'}${exec echo -e '\x01'} || \
 ${upspeed wlan0} ${exec echo -e '\x04'}${exec echo -e '\x01'} ] \
 [${exec echo -e '\x05'}${exec echo -e '\x01'} $memperc% ($mem) ] \
-#[${acpitemp}° ] \ 
 [${exec echo -e '\x03'} ${exec echo -e '\x01'}${exec ~/bin/vol.sh} ] \
-[${exec echo -e '\x06'} ${exec echo -e '\x01'}${battery_percent BAT0}% ] \
-[${exec echo -e '\x02'} ${exec echo -e '\x01'}${time  %a %b %d %I:%M%P}]
+#[${exec echo -e '\x06'} ${exec echo -e '\x01'}${battery_percent BAT0}% ] \#
+[${exec ~/bin/power.sh} ]\
+[${exec echo -e '\x02'} ${exec echo -e '\x01'}${time  %a %b %d %I:%M%P}] \
+
 
 
