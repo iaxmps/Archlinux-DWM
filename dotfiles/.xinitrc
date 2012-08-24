@@ -13,11 +13,12 @@
 
 xset +fp /usr/share/fonts/local
 xset fp rehash
-feh --bg-scale /home/loscrews/Pics/bg.jpg &
 mpd &
 xbindkeys &
+~/bin/VGA.sh &
 #xcompmgr &
 conky | while read -r; do xsetroot -name "$REPLY"; done &
 thunar --daemon &
+feh --bg-scale /home/loscrews/Pics/bg.jpg &
 exec dbus-launch ck-launch-session dwm
 
